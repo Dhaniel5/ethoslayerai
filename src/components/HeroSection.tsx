@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, Shield, Zap, Eye } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 export default function HeroSection() {
@@ -77,25 +77,6 @@ export default function HeroSection() {
             </Button>
           </div>
 
-          {/* Stats */}
-          <div
-            className="grid grid-cols-3 gap-6 max-w-lg mx-auto animate-fade-up"
-            style={{ animationDelay: "0.6s", opacity: 0 }}
-          >
-            {[
-              { icon: Shield, label: "Tokens Analyzed", value: "12,400+" },
-              { icon: Zap, label: "Rug Pulls Detected", value: "830+" },
-              { icon: Eye, label: "Risk Signals", value: "50+" },
-            ].map(({ icon: Icon, label, value }) => (
-              <div key={label} className="text-center">
-                <div className="flex justify-center mb-1">
-                  <Icon className="h-4 w-4 text-primary" />
-                </div>
-                <div className="text-xl font-bold text-gradient font-mono">{value}</div>
-                <div className="text-xs text-muted-foreground">{label}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 

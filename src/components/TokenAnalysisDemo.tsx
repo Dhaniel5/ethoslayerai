@@ -184,26 +184,6 @@ export default function TokenAnalysisDemo() {
               </Button>
             </form>
 
-            {/* Quick picks */}
-            <div className="flex flex-wrap gap-2">
-              <span className="text-xs text-muted-foreground self-center">Try:</span>
-              {PRELOADED_TOKENS.map((token) => (
-                <button
-                  key={token.ticker}
-                  onClick={() => {
-                    setInput(token.label);
-                    analyze(token.ticker, token.label);
-                  }}
-                  className={`px-3 py-1 rounded-lg text-xs font-mono border transition-all duration-200 ${
-                    selectedTicker === token.ticker
-                      ? "border-primary/60 bg-primary/10 text-primary"
-                      : "border-border/60 bg-muted/40 text-muted-foreground hover:border-primary/40 hover:text-foreground"
-                  }`}
-                >
-                  {token.ticker}
-                </button>
-              ))}
-            </div>
           </div>
 
           {/* Loading */}
