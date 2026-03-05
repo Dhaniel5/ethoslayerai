@@ -56,9 +56,6 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="outline" size="sm" className="border-primary/40 text-primary hover:bg-primary/10 hover:border-primary/60" asChild>
-            <Link to="/analyze">Analyze Token</Link>
-          </Button>
           <Button size="sm" className="bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-glow-purple" asChild>
             <Link to="/analyze">Get Started</Link>
           </Button>
@@ -92,9 +89,6 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="flex gap-2 mt-3 pt-3 border-t border-border/50">
-              <Button variant="outline" size="sm" className="flex-1 border-primary/40 text-primary hover:bg-primary/10" asChild>
-                <Link to="/analyze" onClick={() => setMobileOpen(false)}>Analyze Token</Link>
-              </Button>
               <Button size="sm" className="flex-1 bg-gradient-primary text-primary-foreground" asChild>
                 <Link to="/analyze" onClick={() => setMobileOpen(false)}>Get Started</Link>
               </Button>
