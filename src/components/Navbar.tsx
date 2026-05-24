@@ -2,11 +2,15 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Wallet } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Analyze", href: "/analyze" },
+  { label: "Dashboard", href: "/dashboard" },
+  { label: "Escrow", href: "/escrow" },
+  { label: "Reputation", href: "/reputation" },
+  { label: "Settlement", href: "/settlement" },
   { label: "Docs", href: "/docs" },
   { label: "About", href: "/about" },
 ];
@@ -14,7 +18,14 @@ const navItems = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [connected, setConnected] = useState(false);
   const location = useLocation();
+  const { toast } = useToast();
+
+  const connectWallet = () => {
+    setConnected(true);
+    toast({ title: "Wallet connected", description: "0x7E5f…4A21 · Sepolia Testnet (demo)" });
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
@@ -56,8 +67,13 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <Button size="sm" className="bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-glow-purple" asChild>
-            <Link to="/analyze">Get Started</Link>
+          <Button
+            size="sm"
+            onClick={connectWallet}
+            className="bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-glow-purple"
+          >
+            <Wallet className="mr-2 h-4 w-4" />
+            {connected ? "0x7E5f…4A21" : "Connect Wallet"}
           </Button>
         </div>
 
@@ -89,8 +105,16 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="flex gap-2 mt-3 pt-3 border-t border-border/50">
-              <Button size="sm" className="flex-1 bg-gradient-primary text-primary-foreground" asChild>
-                <Link to="/analyze" onClick={() => setMobileOpen(false)}>Get Started</Link>
+              <Button
+                size="sm"
+                className="flex-1 bg-gradient-primary text-primary-foreground"
+                onClick={() => {
+                  connectWallet();
+                  setMobileOpen(false);
+                }}
+              >
+                <Wallet className="mr-2 h-4 w-4" />
+                {connected ? "0x7E5f…4A21" : "Connect Wallet"}
               </Button>
             </div>
           </nav>

@@ -1,114 +1,37 @@
-import { Brain, Star, AlertTriangle, Eye, Users, TrendingUp } from "lucide-react";
+import { Brain, Lock, Zap, BadgeCheck, Eye, Fingerprint } from "lucide-react";
 
-const features = [
-  {
-    icon: Brain,
-    title: "AI Token Analysis",
-    description:
-      "Deep-learning models analyze token contracts, transaction patterns, holder distribution, and market behavior to surface hidden risks.",
-    gradient: "from-neon-blue/20 to-primary/10",
-    border: "border-neon-blue/20",
-    iconColor: "text-neon-blue",
-    tag: "Core Feature",
-  },
-  {
-    icon: Star,
-    title: "Ethos Score",
-    description:
-      "A proprietary 0–100 rating system measuring transparency, ethical tokenomics, decentralization, and community health across multiple dimensions.",
-    gradient: "from-primary/20 to-accent/10",
-    border: "border-primary/20",
-    iconColor: "text-primary",
-    tag: "Flagship",
-  },
-  {
-    icon: AlertTriangle,
-    title: "Rug Pull Detection",
-    description:
-      "Flags liquidity withdrawal risks, suspicious mint authority, locked LP analysis, and abnormal whale concentration patterns in real-time.",
-    gradient: "from-destructive/20 to-primary/10",
-    border: "border-destructive/20",
-    iconColor: "text-destructive",
-    tag: "Risk Engine",
-  },
-  {
-    icon: Eye,
-    title: "Transparency Indicators",
-    description:
-      "Evaluates whether teams are doxxed, governance is on-chain, token allocation is disclosed, and vesting schedules are enforced.",
-    gradient: "from-accent/20 to-neon-blue/10",
-    border: "border-accent/20",
-    iconColor: "text-accent",
-    tag: "Trust Layer",
-  },
-  {
-    icon: Users,
-    title: "Community Governance",
-    description:
-      "Analyzes DAO structures, voting power distribution, proposal history, and whether token holders have meaningful control.",
-    gradient: "from-neon-blue/15 to-accent/10",
-    border: "border-neon-blue/20",
-    iconColor: "text-neon-blue",
-    tag: "Governance",
-  },
-  {
-    icon: TrendingUp,
-    title: "Tokenomics Summary",
-    description:
-      "Breaks down supply mechanics, inflation schedules, burn mechanisms, and whether the economic model incentivizes long-term value.",
-    gradient: "from-primary/15 to-neon-blue/10",
-    border: "border-primary/20",
-    iconColor: "text-primary",
-    tag: "Economics",
-  },
+const solutions = [
+  { icon: Brain, title: "AI Risk Intelligence", description: "Analyze wallets, tokens, and projects for scams, manipulation, and unethical behavior using deep on-chain models.", tag: "Intelligence", border: "border-neon-blue/20", iconColor: "text-neon-blue", gradient: "from-neon-blue/20 to-primary/10" },
+  { icon: Lock, title: "Smart Escrow Infrastructure", description: "Secure peer-to-peer and business transactions with programmable, condition-based escrow contracts.", tag: "Escrow", border: "border-primary/20", iconColor: "text-primary", gradient: "from-primary/20 to-accent/10" },
+  { icon: Zap, title: "Instant Settlement Layer", description: "Transparent, trusted digital settlements across borders, chains, and ecosystems.", tag: "Settlement", border: "border-accent/20", iconColor: "text-accent", gradient: "from-accent/20 to-neon-blue/10" },
+  { icon: BadgeCheck, title: "Trust & Reputation Scoring", description: "Credibility scores for wallets, projects, merchants, and DAO participants in real time.", tag: "Reputation", border: "border-neon-blue/20", iconColor: "text-neon-blue", gradient: "from-neon-blue/15 to-accent/10" },
+  { icon: Eye, title: "Ethical Compliance Monitoring", description: "Monitor suspicious activity, governance abuse, and transparency risk across protocols and treasuries.", tag: "Compliance", border: "border-primary/20", iconColor: "text-primary", gradient: "from-primary/15 to-neon-blue/10" },
+  { icon: Fingerprint, title: "Decentralized Identity Signals", description: "Integrate identity reputation and behavioral trust indicators directly into your dApp.", tag: "Identity", border: "border-accent/20", iconColor: "text-accent", gradient: "from-accent/15 to-primary/10" },
 ];
 
 export default function FeaturesSection() {
   return (
-    <section id="features" className="relative py-24 overflow-hidden">
-      {/* Orb */}
+    <section id="solutions" className="relative py-24 overflow-hidden">
       <div className="orb w-[400px] h-[400px] bg-accent/10 top-[20%] right-[-100px]" />
-
       <div className="container mx-auto px-4 relative z-10">
-        {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-mono mb-4">
-            PLATFORM FEATURES
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Everything You Need to{" "}
-            <span className="text-gradient">Trust Web3</span>
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            A comprehensive suite of AI-powered tools for evaluating the integrity of any crypto project.
-          </p>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-mono mb-4">CORE SOLUTIONS</div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">One Layer for <span className="text-gradient">Web3 Trust</span></h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">A complete stack for risk, escrow, settlement, reputation, compliance, and identity — built for the next generation of digital finance.</p>
         </div>
-
-        {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
-          {features.map((feature, idx) => {
-            const Icon = feature.icon;
+          {solutions.map((s, idx) => {
+            const Icon = s.icon;
             return (
-              <div
-                key={idx}
-                className={`group relative rounded-2xl border ${feature.border} bg-surface-1 p-6 shadow-card hover:shadow-glow-purple hover:-translate-y-1 transition-all duration-300 overflow-hidden`}
-              >
-                {/* Background gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-
+              <div key={idx} className={`group relative rounded-2xl border ${s.border} bg-surface-1/80 backdrop-blur-sm p-6 shadow-card hover:shadow-glow-purple hover:-translate-y-1 transition-all duration-300 overflow-hidden`}>
+                <div className={`absolute inset-0 bg-gradient-to-br ${s.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                 <div className="relative z-10">
-                  {/* Tag */}
-                  <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest mb-4 block">
-                    {feature.tag}
-                  </span>
-
-                  {/* Icon */}
-                  <div className={`w-12 h-12 rounded-xl bg-muted/60 border ${feature.border} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <Icon className={`h-5 w-5 ${feature.iconColor}`} />
+                  <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest mb-4 block">{s.tag}</span>
+                  <div className={`w-12 h-12 rounded-xl bg-muted/60 border ${s.border} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <Icon className={`h-5 w-5 ${s.iconColor}`} />
                   </div>
-
-                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
+                  <h3 className="text-lg font-semibold mb-2">{s.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{s.description}</p>
                 </div>
               </div>
             );

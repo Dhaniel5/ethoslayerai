@@ -1,36 +1,19 @@
-import { AlertTriangle, TrendingUp, ShieldCheck } from "lucide-react";
+import { AlertTriangle, ShieldCheck } from "lucide-react";
 
 const problems = [
-  {
-    icon: AlertTriangle,
-    title: "The Problem",
-    description:
-      "Web3 has become a breeding ground for scams, rug pulls, and projects with manipulative tokenomics. Billions are lost annually to deceptive projects that lure investors with false promises.",
-    items: ["$3.8B lost to crypto scams in 2023", "82% of DeFi exits were rug pulls", "Less than 12% of projects are audited"],
-    color: "text-destructive",
-    border: "border-destructive/20",
-    bg: "bg-destructive/5",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Our Solution",
-    description:
-      "EthosLayer provides AI-powered ethical analysis that evaluates projects against a transparent framework of trust signals, giving investors and communities the intelligence they need.",
-    items: ["Real-time Ethos Scoring", "Governance structure analysis", "Community-verified transparency"],
-    color: "text-primary",
-    border: "border-primary/20",
-    bg: "bg-primary/5",
-  },
-  {
-    icon: TrendingUp,
-    title: "The Impact",
-    description:
-      "By promoting ethical standards in decentralized ecosystems, EthosLayer helps build a Web3 where transparency and accountability are the norm, not the exception.",
-    items: ["Protect retail investors", "Promote ethical project development", "Build trust in decentralized systems"],
-    color: "text-neon-blue",
-    border: "border-neon-blue/20",
-    bg: "bg-neon-blue/5",
-  },
+  "Rug pulls and exit scams draining retail investors",
+  "Fraudulent projects with manipulative tokenomics",
+  "Fake escrow agents and unverified middlemen",
+  "Lack of trust in peer-to-peer transactions",
+  "Cross-border payment risk and compliance gaps",
+  "Poor settlement transparency across chains",
+];
+
+const solutions = [
+  { title: "AI", description: "Detect risk patterns before money moves." },
+  { title: "Escrow", description: "Programmable funds protection by default." },
+  { title: "Ethical Intelligence", description: "Score behavior, governance, and intent." },
+  { title: "Smart Contracts", description: "Automated, auditable settlement logic." },
 ];
 
 export default function WhyEthosLayer() {
@@ -41,41 +24,56 @@ export default function WhyEthosLayer() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-mono mb-4">
-            WHY ETHOSLAYER
+            WHY ETHOSLAYER MATTERS
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Web3 Deserves{" "}
-            <span className="text-gradient">Better Standards</span>
+            Web3 Has a{" "}
+            <span className="text-gradient">Trust Problem</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            The decentralized ecosystem has unprecedented potential — but only if trust can be established at scale.
+            Billions are lost every year because the decentralized economy lacks shared trust infrastructure.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {problems.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={idx}
-                className={`rounded-2xl border ${item.border} ${item.bg} p-6 shadow-card`}
-              >
-                <div className={`w-12 h-12 rounded-xl bg-muted/60 border ${item.border} flex items-center justify-center mb-4`}>
-                  <Icon className={`h-5 w-5 ${item.color}`} />
-                </div>
-                <h3 className={`text-lg font-bold mb-3 ${item.color}`}>{item.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{item.description}</p>
-                <ul className="space-y-2">
-                  {item.items.map((point, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm">
-                      <span className={`w-1.5 h-1.5 rounded-full ${item.color.replace("text-", "bg-")}`} />
-                      <span className="text-foreground/80">{point}</span>
-                    </li>
-                  ))}
-                </ul>
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {/* Problems */}
+          <div className="rounded-2xl border border-destructive/20 bg-destructive/5 p-6 shadow-card">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-xl bg-destructive/10 border border-destructive/20 flex items-center justify-center">
+                <AlertTriangle className="h-5 w-5 text-destructive" />
               </div>
-            );
-          })}
+              <h3 className="text-lg font-bold text-destructive">The Problem</h3>
+            </div>
+            <ul className="space-y-3">
+              {problems.map((p, i) => (
+                <li key={i} className="flex items-start gap-3 text-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-destructive mt-2 flex-shrink-0" />
+                  <span className="text-foreground/80">{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Solution */}
+          <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 shadow-card">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                <ShieldCheck className="h-5 w-5 text-primary" />
+              </div>
+              <h3 className="text-lg font-bold text-primary">The EthosLayer Solution</h3>
+            </div>
+            <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
+              We combine four pillars into one unified trust layer for any Web3 transaction or product.
+            </p>
+            <div className="grid grid-cols-2 gap-3">
+              {solutions.map((s) => (
+                <div key={s.title} className="rounded-xl border border-border/50 bg-surface-2 p-4">
+                  <p className="text-sm font-semibold text-foreground mb-1">{s.title}</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{s.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
