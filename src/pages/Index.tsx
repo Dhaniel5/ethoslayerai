@@ -4,6 +4,7 @@ import HowItWorks from "@/components/HowItWorks";
 import FeaturesSection from "@/components/FeaturesSection";
 import TokenAnalysisDemo from "@/components/TokenAnalysisDemo";
 import WhyEthosLayer from "@/components/WhyEthosLayer";
+import UseCasesSection from "@/components/UseCasesSection";
 import ForDevelopers from "@/components/ForDevelopers";
 import RoadmapSection from "@/components/RoadmapSection";
 import AboutSection from "@/components/AboutSection";
@@ -19,6 +20,7 @@ const Index = () => {
         <FeaturesSection />
         <TokenAnalysisDemo />
         <WhyEthosLayer />
+        <UseCasesSection />
         <ForDevelopers />
         <RoadmapSection />
         <AboutSection />

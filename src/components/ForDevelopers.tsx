@@ -1,19 +1,15 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Code, Database, BookOpen, ShieldCheck, Wallet, ArrowRight } from "lucide-react";
+import { Code, Database, BookOpen, ShieldCheck, Wallet, Lock, ArrowRight } from "lucide-react";
 
 const offerings = [
-  { icon: Lock_(), title: "Escrow APIs", description: "Drop-in programmable escrow for any product or marketplace." },
+  { icon: Lock, title: "Escrow APIs", description: "Drop-in programmable escrow for any product or marketplace." },
   { icon: Code, title: "AI Risk APIs", description: "Real-time risk scoring for wallets, contracts, and transactions." },
   { icon: Database, title: "Settlement SDKs", description: "Cross-chain settlement primitives with auditable receipts." },
   { icon: Wallet, title: "Wallet Reputation APIs", description: "Behavioral and identity reputation as a service." },
   { icon: ShieldCheck, title: "Compliance Analytics", description: "Sanctions, ethics, and policy monitoring out of the box." },
   { icon: BookOpen, title: "Research Insights", description: "Sector-level transparency datasets and reports." },
 ];
-
-function Lock_() {
-  return Code;
-}
 
 export default function ForDevelopers() {
   return (
